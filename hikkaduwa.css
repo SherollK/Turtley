@@ -24,7 +24,7 @@
 
 
 
-/** Deascription*/
+/** Description*/
 
 .text-box h1{
     font-size: 62px;
@@ -46,7 +46,7 @@
     font-weight: 400;    
 }
 
-.dummy{
+.map_main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 30px;
@@ -61,7 +61,7 @@
 }
 
 .map iframe,
-.dummy img{
+.map_main img{
     border: 0;
     width: 100%;
     max-width: 400px;
