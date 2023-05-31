@@ -1,0 +1,156 @@
+.threats_cover{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(images/intro3.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    
+}
+
+.threats_cover .title{
+    flex: 1;
+    padding: 10px;
+    padding-left: 10%;
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 45px;
+}
+
+.threats_cover .title h1{
+    font-size: 62px;
+}
+
+.threats_cover .title h2{
+    margin: 10px 0 40px;
+    font-size: 20px;
+}
+
+.threats_description{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: rgb(238, 238, 238);
+}
+
+.threats_description h2{
+    font-size: 18px;
+    font-weight: 400;    
+
+}
+
+/* Introduction */
+.threats_intro-container{
+    padding: 35px;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    cursor: pointer;
+    
+}
+
+.threats_intro-text{
+    text-align: center;
+    background: rgb(215, 192, 174);
+    border-radius: 10px;
+    padding: 30px;
+    transition: 0.5s;
+    box-sizing: border-box;
+
+}
+/*255 212 187*/
+
+.threats_intro-text h2{
+    font-weight: 600;
+}
+
+.threats_intro-text:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+@media only screen and (max-width:1246px) {
+
+    .threats_intro-container{
+        flex-direction: column;
+    }
+    
+    .threats_intro-text{
+        max-width: 800px;
+        
+    }
+    }
+
+
+/* Main Section*/
+
+.threat_1 h1,
+.threat_2 h1,
+.threat_3 h1{
+    text-align: center;
+}
+
+.threat_1,
+.threat_3{
+    background: rgb(238, 238, 238);
+}
+  
+.threat_1-container,
+.threat_2-container,
+.threat_3-container{
+    padding: 35px;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.threat_2-container{
+    flex-direction: row-reverse;
+}
+
+.threat_1-content,
+.threat_2-content,
+.threat_3-content{
+    text-align: center;
+}
+
+.threat_1 h1,
+.threat_2 h1,
+.threat_3 h1{
+    padding-top: 30px;
+}
+
+
+  
+@media only screen and (max-width:900px) {
+.threat_1-container,
+.threat_2-container,
+.threat_3-container{
+    flex-direction: column;
+}
+
+.threat_1-content,
+.threat_2-content,
+.threat_3-content{
+    max-width: 800px;
+}
+
+.threat_1-image img,
+.threat_2-image img,
+.threat_3-image img{
+    width: 100%;
+}
+}
+
+.threat-link{
+    text-align: center;
+    padding: 5px;
+}

@@ -1,0 +1,306 @@
+/* Cover Page */
+
+.cover{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(images/greenSea.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
+
+.cover {
+    background-color: black;
+    position: relative;
+    border: none;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100Vh;
+    margin-top: auto;
+}
+
+.cover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 31, 31, 0.3);
+    z-index: 1;
+}
+
+.cover-image {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+.cover-image-container{
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.cover-header {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    align-items: center;
+}
+
+.cover-header h2 {
+    font-size: 40px;
+    margin-top: 0;
+    transition: 0.7s ease-in-out;
+    transition: letter-spacing 0.3s ease-in-out;
+}
+/*************************/
+
+.text-box{    
+    margin-top: 20rem;
+    color: white;
+    position: absolute;
+    text-align: center; 
+    left: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-box h1{
+    font-size: 62px;
+}
+
+.text-box h2{
+    margin: 10px 0 40px;
+    font-size: 20px;
+    color: white;
+}
+
+.scroll-button{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid#ffffff;
+    border-radius: 30px;
+    padding: 12px 34px;
+    font-size: 15px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.scroll-button:hover{
+    border: 1px solid#333;
+    background: #333;
+    transition: 1s;
+
+}
+
+#intro {
+    scroll-margin-top: 20px; /* Add margin to adjust the scrolling position */
+    scroll-behavior: smooth;
+}
+
+
+/*Introduction*/
+
+.intro{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: rgb(236, 248, 249);
+}
+
+.intro-wrapper{
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    align-items: center;
+}
+
+.intro h2{
+    font-size: 18px;
+    font-weight: 400; 
+    text-align: center;   
+
+}
+
+@media only screen and (max-width:800px){
+    /* Cover Page*/
+    .text-box h1{
+        font-size: 30px;
+    }
+
+}
+
+
+/*Categories Overview*/
+
+.category{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+    margin: auto;
+}
+.category-wrapper{
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.category h3{
+    font-weight: 450;
+}
+
+.feature-img img{
+    width: 100%;
+}
+
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-col{
+    flex-basis: 31%;
+    box-sizing: border-box;
+}
+
+
+@media(max-width: 700px){
+    /*Category overvew*/
+    .row{
+        flex-direction: column;
+    }
+}
+
+/* Hatchery Overview */
+.hatchery_index{
+    background: rgb(238, 238, 238);
+  }
+  
+.hatchery_index-container{
+    padding: 35px;
+    gap: 35px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hatchery_index_ul{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hatchery_index-text{
+    text-align: center;
+    /* max-width: 600px; */
+}
+
+.hatchery_index-text a{
+    text-decoration: none;
+}
+
+.hatchery_index-container img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.threats_index-img img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+  
+  @media only screen and (max-width:900px) {
+    .hatchery_index-container{
+        grid-template-columns: 1fr;
+    }
+  }
+  
+
+/* Threats Overview */
+
+
+
+.threats_index-container{
+    padding: 35px;
+    gap: 35px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+}
+
+.threats_index-container :nth-child(1){
+    order: 2;
+}
+
+.threats_index-container :nth-child(2){
+    order: 1;
+}
+
+.threats_index-text{
+  text-align: center;
+}
+
+.threats_index-ol{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width:1246px) {
+  
+  .threats_index-container{
+      flex-direction: column;
+  }
+
+  .threats_index-text{
+      max-width: 600px;
+  }
+
+  .threats_index-container{
+    grid-template-columns: 1fr;
+}
+
+    .threats_index-container :nth-child(1){
+        order: 1;
+    }
+
+    .threats_index-container :nth-child(2){
+        order: 2;
+    }
+}
+
+
+

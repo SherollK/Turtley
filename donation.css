@@ -1,0 +1,95 @@
+.purchase{
+    text-align: center;
+}
+
+
+.merch-main{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 90px;
+}
+
+
+
+.merch-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px;
+    padding-top: 50px;
+    gap: 50px;
+    justify-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.donate-first-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.merch-container-sub img{
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.merch-container-sub{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.merch-container-sub button{
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    padding: 10px 50px;
+}
+
+.merch-container-sub h4{
+    font-weight: 400;
+}
+
+.merch-container-sub h5{
+    color: rgb(255, 94, 0);
+}
+
+.donate-first-container-two h4,
+.donate-first-container-two h5{
+    margin: 10px 0;
+}
+
+.donation{
+    text-align: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 1260px) {
+    .donate-first-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .donate-first-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .donate-first-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+

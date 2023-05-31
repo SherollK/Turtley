@@ -1,0 +1,83 @@
+
+
+.bentota_cover{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(images/bentota_cover.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    
+}
+
+.bentota_cover .bentota_cover-title{
+    flex: 1;
+    padding: 10px;
+    padding-left: 10%;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.bentota_cover-title h1{
+    font-size: 62px;
+}
+
+.bentota1_main,
+.bentota2_main{
+    padding: 35px;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bentota2_main{
+    flex-direction: row-reverse;
+}
+
+.bentota1_main img,
+.bentota2_main img{
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bentota1_text,
+.bentota2_text{
+    text-align: center;
+    max-width: 700px;
+}
+
+@media only screen and (max-width:1024px) {
+    .bentota1_main,
+    .bentota2_main{
+        flex-direction: column;
+    }
+
+
+}
+
+.bentota1_text h2,
+.bentota2_text h2{
+    position: relative;
+    animation: jump 1s infinite;
+  }
+  
+  @keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+

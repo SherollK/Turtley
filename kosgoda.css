@@ -1,0 +1,65 @@
+
+
+.kosgoda_cover{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(images/kosgoda_cover.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    
+}
+
+.kosgoda_cover .kosgoda_cover-title{
+    flex: 1;
+    padding: 10px;
+    padding-left: 10%;
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.kosgoda_cover-title h1{
+    font-size: 62px;
+}
+
+.kosgoda1_main,
+.kosgoda2_main{
+    padding: 35px;
+    gap: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kosgoda1_text,
+.kosgoda2_text{
+    text-align: center;
+    max-width: 900px;
+}
+
+.kosgoda1_main img,
+.kosgoda2_main img{
+    width: 100%;
+}
+
+.kosgoda2_text h2,
+.kosgoda1_text h2 {
+    position: relative;
+    animation: jump 1s infinite;
+  }
+  
+  @keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
