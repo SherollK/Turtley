@@ -8,13 +8,12 @@
   <script src="//unpkg.com/alpinejs" defer></script> 
 </head>
 <body>
-  
   <div class="heading">
-    Buy Tickets
+     Buy Tickets
   </div>
 
-  <div x-data="tickets" class="container">
-    <div class="left-section">
+  <div x-data="tickets" class="container-tickets">
+    <div class="lhs-tickets">
         <!-- Date Section -->
         <div class="date-section">
             <label for="date"><h2>Date</h2></label>
@@ -41,7 +40,7 @@
               <td>SL Child</td> <td>2 USD</td> <td>3 USD</td>           
             </tr>
             <tr>
-              <td colspan="3">Infants (SL or Foreigner) (under 4 years) entrance is completely free</td>
+              <td colspan="3" style="text-align: center;">Infants (SL or Foreigner) (under 4 years) entrance is completely free</td>
             </tr>
           </table>
         </div>
@@ -51,40 +50,43 @@
           <h2>Duration</h2>
           Select the duration of your visit: <br>
           <div>
-            <label for="timeslot">Time Slot</label>
+            <label for="timeslot">Time Slot:</label>
             <div>
-                <button x-on:click="showTimes = !showTimes">
+                <button x-on:click="showTimes = !showTimes" class="time-button">
                     <span x-show="!showTimes">Show Times</span>
                     <span x-show="showTimes">Hide Times</span>
                 </button>
-                <ul>
-                    <template x-for="(timeSlot, index) in openTimes" :key="index">
-                        <li x-show="showTimes || selectedTimeSlots.includes(index)" 
-                            x-on:click="selectTimeSlot(index)">
-                            <label :for="timeSlot.title"  style="cursor: pointer;">
-                              <span x-text="timeSlot.title"></span>
-                              <span x-show="timeSlot.isPeak"><b> (peak)</b></span>
-                            </label>
-                        </li>
-                    </template>
-                </ul>            
+                <div class="time-slot">
+                  <ul style="list-style: none;">
+                      <template x-for="(timeSlot, index) in openTimes" :key="index">
+                          <li x-show="showTimes || selectedTimeSlots.includes(index)" 
+                              x-on:click="selectTimeSlot(index)" x-bind:style="timeSlot.isPeak ? 'background: #6CA6CD' : 'background: #D9CDB8'">
+                              <label :for="timeSlot.title"  style="cursor: pointer;">
+                                <span x-text="timeSlot.title"></span>
+                                <span x-show="timeSlot.isPeak"><b> (peak)</b></span>
+                              </label>
+                          </li>
+                      </template>
+                  </ul>
+                </div>           
             </div>
-            Selected time:
+            <p style="font-size: 17px;"><b>Selected time:</b></p>
             <template x-for="timeIndex in selectedTimeSlots">
                 <div x-text="openTimes[timeIndex].title"></div>
             </template>
-          </div>      
+          </div> 
         </div>
         <!-- Guests Section -->
         <div class="guest-section">
           <h2>Guests</h2>
           Select the number of tickets needed for each category: 
           <div>
-            <label for="ticketType">Ticket Type</label>
+            <label for="ticketType">Ticket Type</label> <br> <br>
             <template x-for="(ticketType, index) in ticketTypes" :key="index">
-                <div>
+                <div class="guest-label">
+                    <div x-init="$watch('selectedTimeSlots.length', value => calculate(ticketType))"></div>
                     <label x-bind:for="ticketType.name" x-text="ticketType.name"></label>
-                    <div>
+                    <div class="guest-input">
                         <button type="button"
                             x-on:click="ticketTypes[index].count = (ticketTypes[index].count - 1 > 0 ? ticketTypes[index].count - 1 : 0); calculate(ticketTypes[index])" class="count-btn">-</button>
                         <input type="number" x-model="ticketTypes[index].count" />
@@ -97,14 +99,12 @@
         </div>
         
         <div>
-            hello !!!
-            <div x-text="JSON.stringify(ticketTypes)"></div>
-      
+            <button type="button" x-on:click="gotoCheckout" class="gotoCheckout">Continnue with Purchase</button>
         </div>
     </div>  
 
     <!-- Summary Table -->
-    <div class="summary">
+    <div class="summary-tickets">
       <table class="summary-table">
         <tr> <td>Date</td> <td x-text="date"></td> </tr>
         <tr> <td>Time</td>
@@ -115,17 +115,16 @@
           </td>
         </tr>
         <tr> <td>Duration</td><td x-text="selectedTimeSlots.length +' Hrs'"></td>
-        <tr class="highlight-row"> <th>Tickets</th> <th>Charges</th> </tr>
+        <tr class="highlight-row"> <th style="text-align: center;">Tickets</th> <th style="text-align: center;">Charges</th> </tr>
         <template x-for="guestIndex in ticketTypes">
           <tr x-show="guestIndex.count > 0">
             <td x-text="guestIndex.count + ' ' + guestIndex.name"></td>
             <td x-text="guestIndex.total"></td>
           </tr>
         </template>
-        <tr class="highlight-row"> <th>Total Payable</th> <td x-text="'$' +calculateGrandTotal(ticketTypes) "></td> </tr>
+        <tr class="highlight-row"> <th style="text-align: center;">Total Payable</th> <td x-text="'$' +calculateGrandTotal(ticketTypes) "style="text-align: center;"></td> </tr>
       </table>
     </div>
-    <button type="button" x-on:click="gotoCheckout" class="gotoCheckout">Continnue with Purchase</button>
     
 </div>
 

@@ -69,3 +69,21 @@
     object-fit: cover;
     object-position: center;
 }
+.buyTicket-button{
+    display: inline-block; 
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+.buyTicket{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }

@@ -7,15 +7,16 @@
   <script src="//unpkg.com/alpinejs" defer></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
   <div class="heading">
     Buy Tickets
   </div>
 
-  <div x-data="checkout" class="main-grid-content">
-    <div class="left-section">
+  <div x-data="checkout" class="container-details">
+    <div class="lhs-details">
       <form x-on:submit.prevent="gotoPayment">
         <table class="details-table">
           <tr>
@@ -24,29 +25,35 @@
           </tr>
           <tr>
             <td><label for="mobile">Mobile</label></td>
-            <td><input type="tel" name="mobile" id="mobile" x-model="guest.mobile" required></td>
+            <td><input type="tel" name="mobile" id="mobile" x-model="guest.mobile" maxlength="10" required></td>
           </tr>
           <tr>
               <td><label for="email">Email</label></td>
               <td><input type="email" name="email" id="email" x-model="guest.email" required></td>
           </tr>
           <tr>
+            <td><label for="confirmEmail">Confirm Email</label></td>
+            <td><input type="email" name="confirmEmail" id="confirmEmail" x-model="guest.confirmEmail" required></td>           
+        </tr>
+        <tr style="column-span: 2;">
+          <td x-show="guest.email && guest.confirmEmail && guest.email !== guest.confirmEmail" style="color: red;">Emails Do not match!!</td>
+        </tr>
+          <tr>
             <td><label for="gender">Gender</label></td>
             <td><select type="gender" name="gender" id="gender" x-model="guest.gender">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
               </select></td>
             </tr>
-          </table>
-          <div>
-              <button type="submit" x-on:click="gotoPayment">Continue with Purchase</button>
-          </div>
+          </table>         
       </form>
-      <span x-text="JSON.stringify(guest)"></span>
+      <div>
+        <button type="submit" x-on:click="gotoPayment" class="gotoPayment">Continue with Purchase</button>
+      </div>
     </div>
       
     <!-- Summary Table -->
-    <div class="right-section">
+    <div class="Summary-details">
       <table class="summary-table">
         <tr> <td>Date</td> <td x-text="savedDate"></td> </tr>
         <tr> <td>Time</td>
@@ -64,7 +71,7 @@
             <td x-text="guestIndex.total"></td>
           </tr>
       </template>
-        <tr class="highlight-row"> <th>Total Payable</th> <td x-text="'$' +savedGrandTotal "></td> </tr>
+        <tr class="highlight-row"> <th style="text-align: center;">Total Payable</th> <td x-text="'$' +savedGrandTotal " style="text-align: center;"></td> </tr>
       </table>
     </div>
   </div>
@@ -83,6 +90,7 @@
                 fullName: '',
                 mobile: '',
                 email: '',
+                confirmEmail:'',
                 gender: ''
             },
             init() {
@@ -96,14 +104,16 @@
                 window.intlTelInput(input, {
                     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
                 });
+                
             },
             gotoPayment() {
+
                 // set the guest data to local storage
                 localStorage.setItem('guest', JSON.stringify(this.guest))
 
                 // redirect to payment page
-                window.location.href = 'payment.html'
-            }
+                window.location.href = 'payment.html'}
+            
         }))
     })
 </script>

@@ -6,40 +6,42 @@
   <title>Details</title>
   <script src="//unpkg.com/alpinejs" defer></script>
   <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
   <div class="heading">
     Buy Tickets
   </div>
-  <div x-data="payment">
-
-    <form x-on:submit.prevent="gotoConfirm">
-      <table class="payment-table">
-        <tr>
-            <td><label for="cardNumber">Card Number</label></td>
-            <td><input type="text" name="cardNumber" id="cardNumber" placeholder="Enter card number" required x-model="card.cardNumber"></td>
-        </tr>
-        <tr>
-          <td><label for="expiryDate">ExpiryDate</label></td>
-          <td><input type="text" name="expiryDate" id="expiryDate" placeholder="MM/YY" required x-model="card.expiryDate"></td>
-        </tr>
-        <tr>
-            <td><label for="cvc">CVC / CVV</label></td>
-            <td><input type="text" name="cvc" id="cvc" placeholder="Enter CVC / CVV" required x-model="card.cvc"></td>
-        </tr>
-        <tr>
-          <td><label for="nameOnCard">Name on card</label></td>
-          <td><input type="text" name="nameOnCard" id="nameOnCard" x-model="card.nameOnCard" required placeholder="Enter name on card"></td>
+  <div x-data="payment" class="container-payment">
+    <div class="lhs-payment">
+      <form x-on:submit.prevent="gotoConfirm">
+        <table class="payment-table">
+          <tr>
+              <td><label for="cardNumber">Card Number</label></td>
+              <td><input type="text" name="cardNumber" id="cardNumber" placeholder="Enter card number" maxlength="16" required x-model="card.cardNumber"></td>
           </tr>
-        </table>
-        <div>
-            <button type="submit" x-on:click="gotoConfirm" >Pay</button>
-        </div>
-    </form>
-
-    <span x-text="JSON.stringify(card)"></span>
+          <tr>
+            <td><label for="expiryDate">ExpiryDate</label></td>
+            <td><input type="text" name="expiryDate" id="expiryDate" placeholder="MM/YY" required x-model="card.expiryDate"></td>
+          </tr>
+          <tr>
+              <td><label for="cvc">CVC / CVV</label></td>
+              <td><input type="text" name="cvc" id="cvc" placeholder="Enter CVC / CVV" maxlength="3" required x-model="card.cvc"></td>
+          </tr>
+          <tr>
+            <td><label for="nameOnCard">Name on card</label></td>
+            <td><input type="text" name="nameOnCard" id="nameOnCard" x-model="card.nameOnCard" required placeholder="Enter name on card"></td>
+            </tr>
+          </table>
+          
+      </form>
+      <div>
+        <button type="submit" x-on:click="gotoConfirm" x-text="'Pay $' +savedGrandTotal " class="gotoConfirm"></button>
+      </div>
+    </div>
+    
     <!-- Summary Table -->
-    <div>
+    <div class="summary-payment">
       <table class="summary-table">
         <tr> <td>Date</td> <td x-text="savedDate"></td> </tr>
         <tr> <td>Time</td>
@@ -50,14 +52,14 @@
           </td>
         </tr>
         <tr> <td>Duration</td><td x-text="selectedTimeSlots.length +' Hrs'"></td>
-        <tr class="highlight-row"> <th>Tickets</th> <th>Charges</th> </tr>
+        <tr class="highlight-row"> <th style="text-align: center;">Tickets</th> <th style="text-align: center;">Charges</th> </tr>
         <template x-for="guestIndex in ticketTypes">
           <tr x-show="guestIndex.count > 0">
             <td x-text="guestIndex.count + ' ' + guestIndex.name"></td>
             <td x-text="guestIndex.total"></td>
           </tr>
       </template>
-        <tr class="highlight-row"> <th>Total Payable</th> <td x-text="'$' +savedGrandTotal "></td> </tr>
+        <tr class="highlight-row"> <th style="text-align: center;">Total Payable</th> <td x-text="'$' +savedGrandTotal " style="text-align: center;"></td> </tr>
       </table>
     </div>
 </div>

@@ -147,7 +147,12 @@ document.addEventListener('alpine:init', () => {
      
       
       gotoCheckout(){
-          // store the data in the local storage
+
+        if(this.date == null ||  this.selectedTimeSlots == null || this.ticketTypes == null){
+            alert('Please fill all the required Fields');
+        }
+        else{
+            // store the data in the local storage
           localStorage.setItem('ticketTypes', JSON.stringify(this.ticketTypes));
           localStorage.setItem('savedGrandTotal', grandTotal);
           localStorage.setItem('savedDate',JSON.stringify(this.date));
@@ -156,6 +161,9 @@ document.addEventListener('alpine:init', () => {
 
           // redirect to the checkout page
           window.location.href = 'details.html';
+        }
+        
+          
       }
 
   }));
