@@ -54,6 +54,15 @@
     max-width: fit-content;
     padding: 10px 50px;
 }
+.common_button{
+    background-color: #333;
+    border-radius: 20px;
+    border: none;
+}
+.common_button a{
+    text-decoration: none;
+    color: white;
+}
 
 .merch-container-sub h4{
     font-weight: 400;

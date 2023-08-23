@@ -8,6 +8,29 @@
   <script src="//unpkg.com/alpinejs" defer></script> 
 </head>
 <body>
+  <!--Navigation Bar-->
+        
+  <header>   
+    <a href="#" class="logo"><img src="images/logo_b.png" alt=""></a>  
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar">MENU</label>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="category.html">TURTLE CATEGORIES</a></li>
+            <li><a href="hikkaduwa.html">HIKKADUWA HATCHERY</a></li>
+            <li><a href="threats.html">THREATS</a></li>
+            <li><a href="#">OTHER</a>
+                <ul>
+                    <li><a href="kosgoda.html">KOSGODA HATCHERY</a></li>
+                    <li><a href="bentota.html">BENTOTA HATCHERY</a></li>
+                </ul>
+            </li>
+            <li><a href="donation.html">PURCHASE & DONATIONS</a></li>
+            <li><a href="#" class="active">BOOK NOW</a></li>
+        </ul>
+    </nav>
+  </header>
   <div class="heading">
      Buy Tickets
   </div>
@@ -97,7 +120,6 @@
             </template>
           </div>
         </div>
-        
         <div>
             <button type="button" x-on:click="gotoCheckout" class="gotoCheckout">Continnue with Purchase</button>
         </div>
@@ -106,6 +128,7 @@
     <!-- Summary Table -->
     <div class="summary-tickets">
       <table class="summary-table">
+        <caption><div style="padding: 3px;"><h3>Summary Table</h3></div></caption>
         <tr> <td>Date</td> <td x-text="date"></td> </tr>
         <tr> <td>Time</td>
           <td>
@@ -129,17 +152,32 @@
 </div>
 
 
-
-
-
-
 <script  src="script.js"></script>
 
-
-
-
-
-
+<!-- Footer -->    
+<footer class="footer_main">
+  <div class="footer_1">
+     <ul>
+         <li><h3>Quick Links</h3></li><br>
+         <li><a href="index.html">Home</a></li>
+         <br>
+         <li><a href="donation.html">Purchase and Donation</a></li>
+         <br>
+         <li><a href="category.html">Turtle Categories</a></li>
+         <br>
+         <li><a href="Bentota.html"></a></li>
+     </ul>
+ </div>
+ 
+ <div class="footer_2">
+     <h3>Contact Us</h3>
+     <p>Email: turtlery@gmail.com</p>
+     <br>
+     <p>Phone: +94 773 473 997</p>
+ </div>
+</footer>
+<footer class="footer_sub">
+ <p>&copy; 2023 Turtle Hatcheries Sri Lanka. All rights reserved. Designed and Developed by <strong>Sheroll Karunagaran</strong></p>
 
     
 </body>

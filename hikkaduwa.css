@@ -22,53 +22,56 @@
    
 }
 
-
-
-/** Description*/
-
 .text-box h1{
     font-size: 62px;
 }
 
-.description{
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-direction:column;
-    text-align: center;
-    align-items: center;
-    justify-content:center;
-    margin: 0 auto;
-}
+/* Description*/
 
 .description p{
     font-size: 18px;
     font-weight: 400;    
 }
-
+.hikkaduwa-wrapper{
+    padding: 35px;
+    gap: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hikkaduwa-wrapper img{
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+.description h1{
+    text-align: center;
+}
+.description{
+    text-align: left;
+    max-width: 700px;
+}
+@media only screen and (max-width:1024px) {
+    .hikkaduwa-wrapper{
+        flex-direction: column;
+    }
+}
+.map iframe{
+    border: 0;
+    width: 80%;
+    /* aspect-ratio: 1/1; */
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/5;
+}
 .map_main{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 30px;
-    gap: 30px;
     align-items: center;
     text-align: center;
     justify-items: center;
 }
 
-.map{
-    text-align: center;
-}
-
-.map iframe,
-.map_main img{
-    border: 0;
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: center;
-}
 .buyTicket-button{
     display: inline-block; 
     font-size: 20px;
@@ -81,9 +84,47 @@
     cursor: pointer;
     border-radius: 25px;
     padding: 10px 20px;
+
 }
 .buyTicket{
     display: flex;
     justify-content: center;
     text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
   }
+  
+/* .description{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin: 0 auto;
+} */
+/* .map_main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+}
+
+.map{
+    text-align: center;
+} */
+
+/* .map iframe,
+.map_main img{
+    border: 0;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+} */

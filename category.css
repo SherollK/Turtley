@@ -104,6 +104,12 @@
 .turtle_4-text{
     text-align: center;
 }
+.turtle_1-text p,
+.turtle_2-text p,
+.turtle_3-text p,
+.turtle_4-text p{
+    text-align: left;
+}
 
   
 @media only screen and (max-width:900px) {
